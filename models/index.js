@@ -26,7 +26,7 @@ var sequelize = new Sequelize(new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE
     acquire: 30000,
     idle: 10000
   }
-});
+}));
 
 fs
   .readdirSync(__dirname)
