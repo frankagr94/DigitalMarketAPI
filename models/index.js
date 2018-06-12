@@ -9,7 +9,9 @@ var db        = {};
 
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize(new Sequelize(process.env.DATABASE_URL, {
-  ssl: true,
+  dialect:  'postgres',
+  protocol: 'postgres',
+  logging:  true, //false
 
   define: {
     timestamps: false,
