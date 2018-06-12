@@ -8,7 +8,8 @@ var env       = process.env.NODE_ENV || 'development';
 var db        = {};
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+var sequelize = new Sequelize('dggj6ca1150cp', 'qzeichnxgtgtpy', 'b4c0cd35ad698b89acfa4e8cba1cab181ff2fa60c0e63c05e63edc37f8176bae', {
+  host: 'ec2-23-21-238-28.compute-1.amazonaws.com',
   dialect: 'postgres',
   operatorsAliases: false,
 
