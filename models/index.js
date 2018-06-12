@@ -8,12 +8,8 @@ var env       = process.env.NODE_ENV || 'development';
 var db        = {};
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize(new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
-  dialect:  'postgres',
-  protocol: 'postgres',
-  port:     match[4],
-  host:     match[3],
-  logging:  true, //false
+var sequelize = new Sequelize(new Sequelize(process.env.DATABASE_URL, {
+  ssl: true,
 
   define: {
     timestamps: false,
