@@ -8,9 +8,11 @@ var env       = process.env.NODE_ENV || 'development';
 var db        = {};
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize(new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+var sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect:  'postgres',
   protocol: 'postgres',
+  port:     match[4],
+  host:     match[3],
   logging:  true, //false
 
   define: {
@@ -24,7 +26,7 @@ var sequelize = new Sequelize(new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE
     acquire: 30000,
     idle: 10000
   }
-}));
+});
 
 fs
   .readdirSync(__dirname)
