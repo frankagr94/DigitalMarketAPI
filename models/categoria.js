@@ -12,7 +12,6 @@ module.exports = function (sequelize, DataTypes){
         },
         imagen: {
             type: DataTypes.STRING(20),
-            unique: true,
             defaultValue: 'vacia'
         },
         estatus: {
