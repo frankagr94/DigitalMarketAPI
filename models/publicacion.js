@@ -20,7 +20,6 @@ module.exports = function (sequelize, DataTypes){
         },
         foto: {
             type: DataTypes.STRING(255),
-            unique: true,
             defaultValue: 'vacia',
             allowNull: false
         },
