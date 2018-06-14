@@ -2,7 +2,7 @@ module.exports = function (app, db) {
 
   /* Get Carrito por IDUsuario*/
   app.get('/api/carrito/usuario/:idusuario', function(req, res) {
-    db.carrito.findAll({ where:  {usuarioId: req.params.idusuario},
+    db.carrito.findOne({ where:  {usuarioId: req.params.idusuario},
       include: [
       {
         model: db.articulo,
