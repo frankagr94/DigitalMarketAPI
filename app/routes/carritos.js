@@ -5,17 +5,13 @@ module.exports = function (app, db) {
     db.carrito.findOne({ where:  {usuarioId: req.params.idusuario},
       include: [
       {
-        model: db.articulo,
-        include: [
-          {
-            model: db.publicacion,
-            include: [
-              {
-                model: db.usuario 
-              } ]
-          } ]
-      }
-    ], where: {usuarioId: req.params.idusuario} }).then(function(carrito){
+        model: db.articulo
+      }, {
+        model: db.usuario
+      }, {
+        model: db.publicacion
+      }   
+    ] }).then(function(carrito){
       res.json(carrito)
     });
   });
