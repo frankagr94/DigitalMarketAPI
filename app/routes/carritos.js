@@ -8,10 +8,13 @@ module.exports = function (app, db) {
         model: db.articulo,
         include: [
           {
-            model: db.publicacion
+            model: db.publicacion,
+            include: [
+              {
+                model: db.usuario
+              }
+            ]
           }]
-      }, {
-        model: db.usuario
       }   
     ] }).then(function(carrito){
       res.json(carrito)
