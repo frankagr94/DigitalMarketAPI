@@ -2,8 +2,7 @@ module.exports = function (app, db) {
 
   /* Get Carrito por IDUsuario*/
   app.get('/api/carrito/usuario/:idusuario', function(req, res) {
-    db.carrito.findOne({ where:  {usuarioId: req.params.idusuario},
-      include: [
+    db.carrito.findAll({ include: [
       {
         model: db.articulo,
         include: [
@@ -11,12 +10,11 @@ module.exports = function (app, db) {
             model: db.publicacion,
             include: [
               {
-                model: db.usuario
-              }
-            ]
-          }]
-      }   
-    ] }).then(function(carrito){
+                model: db.usuario 
+              } ]
+          } ]
+      }
+    ], where: {usuarioId: req.params.idusuario} }).then(function(carrito){
       res.json(carrito)
     });
   });
