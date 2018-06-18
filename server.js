@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 3000;
 
 //Declaracion de servicios
 var roles = require('./app/routes/roles.js');
+var likes = require('./app/routes/likes.js');
 var paises = require('./app/routes/paises.js');
 var estados = require('./app/routes/estados.js');
 var carritos = require('./app/routes/carritos.js');
@@ -26,6 +27,7 @@ app.use(express.static('app/public'));
 
 //Inicializacion de servicios
 roles(app, db);
+likes(app, db);
 paises(app, db);
 estados(app, db);
 carritos(app, db);
