@@ -8,7 +8,7 @@ module.exports = function (app, db) {
   
 
   app.get('/api/publicacion/completa', function(req, res) {
-    db.publicacion.findAll({  
+    db.publicacion.findAll({ where: {estatus: true}, 
       include: [
         {
           model: db.usuario 
