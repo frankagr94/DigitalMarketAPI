@@ -15,6 +15,9 @@ module.exports = function (app, db) {
         },
         {
           model: db.articulo 
+        },
+        {
+          model: db.like
         }
       ]
     }).then(function(publicaciones){
