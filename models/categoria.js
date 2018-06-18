@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes){
         },
         imagen: {
             type: DataTypes.STRING(20),
-            defaultValue: 'vacia'
+            defaultValue: ''
         },
         estatus: {
             type: DataTypes.BOOLEAN,
